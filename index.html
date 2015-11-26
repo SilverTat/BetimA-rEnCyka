@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <script>
+        //ett sätt att skapa flerdimensionell array
+            var list1 = [0,1,2];
+            var list2 = [3,0,5];
+            var list3 = [1,1,4];
+            
+            var list = [list1, list2, list3]
+            
+            
+            
+            //Ett mycket bättre sätt
+            var list = [[0,1,2, 0, 2], 
+                        [1,0,2, 0, 1],
+                        [0,1,2, 2, 2], 
+                        [0,0,2, 1, 1],
+                        [1,1,2, 0, 1]];
+            
+            console.log(list[2][2]);
+            
+            var c, ctx;
+            
+            function start() {
+                
+                
+                 c = document.getElementById("c");
+                 ctx = c.getContext("2d");
+                
+            // Loopa igen    
+            for (var j = 0; j < list.length; j++) {
+                //Loopa igenom alla element i raden
+                for (var i = 0; i < list[0]. length; i++) {
+                
+                //Kolla värdet i arrayen och välj färg därefter
+                if(list[j][i] == 0){
+                    ctx.fillStyle = "pink";
+                }else if(list[j][i] == 1){
+                    ctx.fillStyle = "green";
+                }else if(list[j][i] == 2){
+                    ctx.fillStyle == "red"
+                }
+                //Måla ut rektangel
+                ctx.fillRect(i * 111,j * 111,111,111);
+                
+            }
+        }
+            
+            
+            }
+        </script>
+    </head>
+    <body onload="start()">
+        <canvas id= "c" width="555" height="555"></canvas>
+    </body>
+</html>
